@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  mirror-apt:
+    restart: always
+    image: apt-mirror:latest
+    container_name: apt-mirror
+    volumes: 
+      - ./volume/mirror/:/var/spool/apt-mirror/:rw
+    command: ["/bin/bash", "-c", "apt-mirror"]
+    networks:
+      - mirror
+  
+  nginx:
+    restart: always
+    image: nginx-mirror:latest
+    container_name: nginx-mirror
+    volumes:
+      - ./volume/nginx/:/etc/nginx/nginx.d:rw
+      - ./volume/mirror/:/var/spool/apt-mirror/:rw
+    ports:
+        - 80:80
+        - 443:443
+    networks:
+      - mirror
+  
+networks:
+  mirror:
+    external: true
+

@@ -1,0 +1,32 @@
+############# config ##################
+#
+set base_path    /var/spool/apt-mirror
+#
+# set mirror_path  $base_path/mirror
+# set skel_path    $base_path/skel
+# set var_path     $base_path/var
+# set cleanscript $var_path/clean.sh
+# set defaultarch  <running host architecture>
+# set postmirror_script $var_path/postmirror.sh
+# set run_postmirror 0
+set nthreads     20
+set _tilde 0
+#
+############# end config ##############
+
+#deb http://ftp.us.debian.org/debian unstable main contrib non-free
+#deb-src http://ftp.us.debian.org/debian unstable main contrib non-free
+
+deb-amd64 http://deb.debian.org/debian stable main contrib non-free
+deb-amd64 http://deb.debian.org/debian stable-updates main contrib non-free
+
+deb-amd64 http://security.debian.org/debian-security stable/updates main contrib non-free
+deb-armhf http://security.debian.org/debian-security stable/updates main contrib non-free
+
+deb-armhf http://mirror.telkomuniversity.ac.id/raspbian/raspbian stable main contrib non-free rpi
+
+deb https://download.docker.com/linux/debian buster stable
+
+
+
+clean http://ftp.us.debian.org/debian
