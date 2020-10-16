@@ -6,7 +6,7 @@ services:
     image: apt-mirror:latest
     container_name: apt-mirror
     volumes: 
-      - ./volume/mirror/:/var/spool/apt-mirror/:rw
+      - /home/mario/repo/mirror/:/var/spool/apt-mirror/:rw
     command: ["/bin/bash", "-c", "apt-mirror"]
     networks:
       - mirror
@@ -16,13 +16,22 @@ services:
     image: nginx-mirror:latest
     container_name: nginx-mirror
     volumes:
-      - ./volume/nginx/:/etc/nginx/nginx.d:rw
-      - ./volume/mirror/:/var/spool/apt-mirror/:rw
+      - /home/mario/repo/nginx/:/etc/nginx/nginx.d:Z
+      - /home/mario/repo/mirror/mirror/:/var/spool/apt-mirror/mirror:rw
     ports:
         - 80:80
         - 443:443
     networks:
       - mirror
+
+  registry:
+    image: registry:2
+    container_name: registry
+    restart: always
+    volumes:
+      - /home/mario/repo/registry/:/var/lib/registry
+    ports:
+      - 5000:5000
   
 networks:
   mirror:
