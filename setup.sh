@@ -7,8 +7,12 @@ echo "deb http://deb.debian.org/debian/ stable main contrib non-free" > /etc/apt
 DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get upgrade -y
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y locales wget apt-mirror nano
+DEBIAN_FRONTEND=noninteractive apt-get install -y locales make perl-modules wget nano #apt-mirror
+ls -l
+cd apt-mirror-master
 
+DEBIAN_FRONTEND=noninteractive make install 
+ 
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 # # ln -s /etc/locale.alias /usr/share/locale/locale.alias
 

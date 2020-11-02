@@ -4,6 +4,8 @@ LABEL version="1.0" name="Mario Tani <mario.tani25@gmail.com>"
 
 WORKDIR /home/
 
+COPY ./apt-mirror-master ./apt-mirror-master/
+
 COPY ./setup.sh ./setup.sh
 RUN bash setup.sh
 

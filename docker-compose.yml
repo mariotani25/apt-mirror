@@ -3,7 +3,7 @@ version: '3.7'
 services:
   mirror-apt:
     restart: always
-    image: apt-mirror:latest
+    image: apt-mirror:v2
     container_name: apt-mirror
     volumes: 
       - /home/mario/repo/mirror/:/var/spool/apt-mirror/:rw
@@ -32,8 +32,14 @@ services:
       - /home/mario/repo/registry/:/var/lib/registry
     ports:
       - 5000:5000
+    networks:
+      - mirror
   
 networks:
   mirror:
-    external: true
+    # external: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.28.0.0/16
 

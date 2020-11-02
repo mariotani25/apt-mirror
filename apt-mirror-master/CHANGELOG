@@ -1,0 +1,98 @@
+0.5.4 (2017-05-29)
+  * Add limit_rate to example mirror.list (fixes #72)
+  * Fix use of uninitialized value $config{"options"} warning (fixes #68,
+    Debian bug #851979, #859601)
+  * Fix warning on repository without md5sum (fixes #66)
+  * Write SHA1 and SHA256 in addition to MD5
+  * Also download xz-compressed Components-$arch.yml.xz (fixes #69)
+
+0.5.3 (2017-01-06)
+  * Add support for 'deb [arch=amd64] ...' format (fixes #32, #65)
+  * Create directories including their parents
+  * Add support for quoted variables with spaces (fixes #43, #67)
+
+0.5.2 (2016-11-08)
+  * Fix typo tranlation -> translation (fixes #35, Debian bug #756035,
+    Launchpad bug #1455522)
+  * if fork() fails, it returns undef and not a negative number (merge #37)
+  * Replace obsolete dpkg option '--print-installation-architecture'
+    by '--print-architecture' (Debian bug #834106)
+  * Add support for https_proxy (fixes #60)
+  * Download DEP-11 files in component/dep11 directories (fixes #56,
+    Launchpad bug #1550852)
+  * Support non-existing .gz index files (fixes #30, Debian bug #819974)
+  * Just test that config file is readable (Debian bug #824493)
+
+0.5.1 (2014-04-12)
+  * Fix find-translation-files bug.
+  * Fix skel (indexes) updates in a hardlinked mirror
+  * Added proxy support
+  * Also mirror xz compressed files (fixes #25).
+
+0.5.0 (2014-02-22)
+  * Removed restrictions when parsing deb-$arch (Launchpad bug #913837)
+    new arch's no longer need to be manually added
+    via an apt-mirror source change.
+  * Code cleaned up with perltidy and a .perltidyrc added
+  * Changed to warn() instead of die() when sources go missing
+    so mirroring of other sources continues.
+  * Download all provided translation files instead of trying to download
+    translation files based on a hard-coded language list. (Debian bug #725762)
+  * Fix typos (e.g. Debian bug #736904 and Launchpad bug #1211097).
+  * Mirror Contents-*.gz for each component. (Debian bug #647301)
+  * Mirror InRelease files (fixes #3).
+
+0.4.9
+  * Added support for downloading of i18n files.
+  * Fix regex problem: arm overrides armhf. Thanks to hawken.
+  * Add support for HTTPS with basic HTTP authentication. Thanks to Pali
+  * Improve lock file handling to avoid false "apt-mirror is already running"
+    messages. Thanks to Ivan Borzenkov <ivan1986@list.ru>
+  * Create directories after config is parsed.
+    Thanks to Rob Verduijn
+  * Support armhf, kfreebsd-* and s390x arch. Thanks Benjamin Drung
+  * Fix braindead build environments. Thanks Jeremy T. Bouse
+  * Add a shebang line to clean.sh. Thanks Benjamin Drung
+  * debian/postrm: Clean-up auto-generated files on purge. Thanks
+    Jeremy T. Bouse
+
+0.4.8
+  * Fix for superfluous errors when mirroring a Flat repo
+  * Fixed support for repositories with no components.
+  * Reduced the number of tries wget will try before it fails to 5
+  * Fixed loop if wget was not installed, would not die()
+  * fix stale wget caching due to bad proxy configs
+
+0.4.7
+  * Lots of typos fixed
+  * apt-mirror will now try to create needed directories if they do not exist
+  * applied patch for closedir() errors
+  * added mirroring examples of multiple architectures to the debian mirror.list
+  * fixed manpage description of mirror.list
+
+0.4.6
+
+  * minor cleanup to the documentation
+  * applied patch from Steve Kowalik ( stevenk@ubuntu.com ) to
+    allow user:pass@host ( http and ftp authenticated )
+    and port numbers in the url host:8080 etc
+  * Added ability to run a shell script after apt-mirror completes the
+    mirroring configuration values "run_postmirror" 0/1
+    and "postmirror_script" /path/to/script.sh
+  * added rate_limit option ( closes sf.net bug #1729402 )
+    a value of 25 is equal to 25 Bytes/Second
+    a value of 25k is equal to 25 Kilobytes/Second
+    a value of 25m is equal to 25 Megabyte/Second
+
+0.4.5
+
+  * added mipsel, armel, and lpia arch support
+  * fixed the tilde replace code so it works with 2 or more tilde
+    in the package names
+  * default _tilde option set to 0
+  * minor updates to the manpage wordings
+  * new _stat function to cache and speed up parsing
+  * download size now in human readable numbers ( KiB,MiB,GiB,etc )
+
+0.4.4
+old changes documented in the debian/changelog
