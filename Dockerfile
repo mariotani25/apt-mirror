@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:buster
 
 LABEL version="1.0" name="Mario Tani <mario.tani25@gmail.com>"
 

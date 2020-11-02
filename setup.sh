@@ -7,7 +7,7 @@ echo "deb http://deb.debian.org/debian/ stable main contrib non-free" > /etc/apt
 DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get upgrade -y
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y locales make perl-modules wget nano #apt-mirror
+DEBIAN_FRONTEND=noninteractive apt-get install -y locales wget nano make perl-modules xz-utils  #apt-mirror
 ls -l
 cd apt-mirror-master
 

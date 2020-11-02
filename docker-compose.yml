@@ -3,7 +3,7 @@ version: '3.7'
 services:
   mirror-apt:
     restart: always
-    image: apt-mirror:v2
+    image: apt-mirror:dev
     container_name: apt-mirror
     volumes: 
       - /home/mario/repo/mirror/:/var/spool/apt-mirror/:rw
