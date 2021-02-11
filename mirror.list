@@ -23,7 +23,22 @@ deb http://security.debian.org/debian-security buster/updates main contrib non-f
 
 # RASPBIAN PACKAGE
 deb-armhf http://mirror.telkomuniversity.ac.id/raspbian/raspbian buster main contrib non-free rpi
+deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
 # deb-armhf http://security.debian.org/debian-security buster/updates main contrib non-free
+
+# UBUNTU 20.04 PACKAGE
+deb-amd64 http://archive.ubuntu.com/ubuntu focal main main/debian-installer restricted restricted/debian-installer universe multiverse
+deb-amd64 http://archive.ubuntu.com/ubuntu focal-security main restricted universe multiverse
+deb-amd64 http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
+deb-amd64 http://archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse
+deb-amd64 http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse
+
+deb-i386 http://archive.ubuntu.com/ubuntu focal main main/debian-installer restricted restricted/debian-installer universe multiverse
+deb-i386 http://archive.ubuntu.com/ubuntu focal-security main restricted universe multiverse
+deb-i386 http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
+deb-i386 http://archive.ubuntu.com/ubuntu focal-proposed main restricted universe multiverse
+deb-i386 http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse
+
 
 # UNIVERSAL PACKAGE
 deb https://download.docker.com/linux/debian buster buster
@@ -32,5 +47,7 @@ deb https://download.webmin.com/download/repository sarge contrib
 clean http://deb.debian.org/debian
 clean http://security.debian.org/debian-security
 clean http://mirror.telkomuniversity.ac.id/raspbian/raspbian
+clean http://archive.ubuntu.com/ubuntu
+clean http://raspbian.raspberrypi.org/raspbian
 clean https://download.docker.com/linux/debian
 clean https://download.webmin.com/download/repository
